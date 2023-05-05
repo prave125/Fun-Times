@@ -40,4 +40,5 @@ public class BasketTest {
 
 		assertEquals(0.16, discountAmount, 0.001);
 	}
+
 }
