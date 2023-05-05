@@ -20,5 +20,12 @@ public abstract class Discount {
     }
 
     public abstract double calculateDiscount(Basket basket);
+    
+    public double calculateTotalCostAfterDiscount(Basket basket, LocalDate purchaseDate) {
+		double totalCost = basket.getTotalCost(purchaseDate);
+		double discount = calculateDiscount(basket);
+		double discountedCost = totalCost - discount;
+		return discountedCost;
+	}
 
 }

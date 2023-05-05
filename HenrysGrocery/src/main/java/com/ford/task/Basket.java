@@ -57,7 +57,17 @@ public class Basket {
 
 	private List<Discount> getDiscounts() {
 		List<Discount> discounts = new ArrayList();
-		discounts.add(new BuySoupGetBreadDiscount(LocalDate.of(2023, 5, 2), LocalDate.of(2023, 5, 9)));
+		//discounts.add(new BuySoupGetBreadDiscount(LocalDate.of(2023, 5, 2), LocalDate.of(2023, 5, 9)));
+		//discounts.add(new ApplesDiscount(LocalDate.of(2023, 5, 6), LocalDate.of(2023, 6, 30)));
 		return discounts;
+	}
+
+	public double getTotalCost(LocalDate today) {
+		double totalCost = 0;
+		for (BasketItem item : items) {
+			totalCost += item.getProduct().getCost() * item.getQuantity();
+		}
+		totalCost -= getDiscount();
+		return totalCost;
 	}
 }

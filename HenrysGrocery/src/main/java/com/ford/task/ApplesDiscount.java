@@ -25,4 +25,12 @@ public class ApplesDiscount extends Discount {
 
 		return 0.0;
 	}
+	public boolean isApplicable(Basket basket) {
+		for (BasketItem item : basket.getItems()) {
+			if (item.getProduct().getName().equals("apples")) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
